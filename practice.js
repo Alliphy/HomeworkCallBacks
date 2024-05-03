@@ -239,6 +239,12 @@ const formalGreeting = names => names.map(name => `Hello, ${name}`);
 // will need to provide a compare function.
 
 // REPLACE THIS WITH YOUR CODE
+const numbers = [200, 78, 43, 2, 1, 7];
+
+const sortNumbers = [...numbers].sort ((a, b) => a - b);
+
+
+// console.log(sortNumbers)
 
 /// /////// PROBLEM 11 //////////
 
@@ -259,6 +265,10 @@ const employees = [
 // Do not edit the code above.
 
 // REPLACE THIS WITH YOUR CODE
+
+const findProgrammer = (employees) => employees.filter((employee) => employee["job"] === "programmer");
+
+// console.log(findProgrammer);
 
 ////////// PROBLEM 12 //////////
 
@@ -285,7 +295,7 @@ const orders = [
   Example: if tax is 0.07, the price afterTax could be calculated like this: afterTax = price * 1.07)
 */
 
-let orderTotals; // Code here
+let orderTotals = orders.map(price => price + price * .07); // Code here
 
 /// /////// PROBLEM 13 //////////
 
