@@ -228,7 +228,7 @@ const startWithLetterA = (arr) => arr.filter(letterA => letterA.toLowerCase().st
 
 // REPLACE THIS WITH YOUR CODE
 
-const formalGreeting = (names) => names.map()
+const formalGreeting = names => names.map(name => `Hello, ${name}`);
 
 /// /////// PROBLEM 10 //////////
 
