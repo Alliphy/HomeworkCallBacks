@@ -143,7 +143,13 @@ each(names, (item, index) => {
 
 // Code here
 
-const getUserById = (users, id, result) => {}
+const getUserById = (users, id, result) => {
+  for (const user of users) {
+    console.log(user)
+    if (user.id === id)
+    return result(user)
+  }
+}
 
 // Do not edit the code below.
 const users = [
@@ -194,6 +200,8 @@ getUserById(users, '16t', (user) => {
 // You should not use a for loop, but should use the filter method instead.
 
 // REPLACE THIS WITH YOUR CODE
+const evens = (arr) => arr.filter((num) => num % 2 === 0);
+
 
 /// /////// PROBLEM 8 //////////
 
@@ -207,6 +215,9 @@ getUserById(users, '16t', (user) => {
 
 // REPLACE THIS WITH YOUR CODE
 
+
+const startWithLetterA = (arr) => arr.filter(letterA => letterA.toLowerCase().startsWith("a"));
+
 /// /////// PROBLEM 9 //////////
 
 // Create a function called formalGreeting which takes in an array of names. It should use
@@ -216,6 +227,8 @@ getUserById(users, '16t', (user) => {
 // Make sure to use arrow functions combined with the map method.
 
 // REPLACE THIS WITH YOUR CODE
+
+const formalGreeting = (names) => names.map()
 
 /// /////// PROBLEM 10 //////////
 
