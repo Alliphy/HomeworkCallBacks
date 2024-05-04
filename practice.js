@@ -52,7 +52,7 @@ first(names, function (firstName) {
 
 //Code Here
 
-const last = (name, lastName) => lastName(name[6]);
+const last = (arr, callback) => callback(arr[arr.length - 1]);
 
 // Do not edit the code below.
 // Your function is called here
@@ -92,10 +92,11 @@ multiply(4, 3, function (answer) {
 //Code Here
 
 
-const contains = (names, name, result) => {
+const contains = (names, search, callback) => {
 
- const found = name in names;
- result(found);
+ const found = names.find((name) => name === search);
+ callback(!!found);
+
 }
 
 
@@ -122,7 +123,7 @@ contains(names, 'Colt', (result) => {
 const each = (names, result) => {
   for(let i = 0; i < names.length; i++) {
 
-  result(names[i], i, names);
+  result(names[i], i);
   }
 }
 
@@ -239,10 +240,10 @@ const formalGreeting = names => names.map(name => `Hello, ${name}`);
 // will need to provide a compare function.
 
 // REPLACE THIS WITH YOUR CODE
-const numbers = [200, 78, 43, 2, 1, 7];
 
-const sortNumbers = [...numbers].sort ((a, b) => a - b);
-
+const sortNumbers = (numbers) => {
+  return [...numbers].sort ((a, b) => a - b);
+}
 
 // console.log(sortNumbers)
 
@@ -266,7 +267,7 @@ const employees = [
 
 // REPLACE THIS WITH YOUR CODE
 
-const findProgrammer = (employees) => employees.filter((employee) => employee["job"] === "programmer");
+const findProgrammer = (array) => array.filter((employee) => employee["job"] === "programmer")[0];
 
 // console.log(findProgrammer);
 
@@ -295,7 +296,9 @@ const orders = [
   Example: if tax is 0.07, the price afterTax could be calculated like this: afterTax = price * 1.07)
 */
 
-let orderTotals = orders.map(price => price + price * .07); // Code here
+let orderTotals = orders.map(({price, tax}) => price * (tax + 1)) ; 
+
+console.log(orderTotals)// Code here
 
 /// /////// PROBLEM 13 //////////
 
@@ -313,6 +316,12 @@ const exampleMenuItems = [
 
 // REPLACE THIS WITH YOUR CODE
 
+const sortMenuItems = (arr) => {
+  return arr.sort((item1, item2) => {
+   return item1.price - item2.price
+  });
+}
+
 /// /////// PROBLEM 14 //////////
 
 // Create a function called productOfArray which takes in an array of numbers. It should
@@ -322,3 +331,8 @@ const exampleMenuItems = [
 // Make sure to use arrow functions combined with the reduce method.
 
 // REPLACE THIS WITH YOUR CODE
+const productOfArray = (arr) => {
+  return arr.reduce((accumulator, currentValue) => {
+    return accumulator * currentValue
+  }, 1) 
+}
